@@ -1,96 +1,114 @@
 # ⚖️ JustiBot
 
-> **Made in Colombia 🇨🇴** | **Proyecto Educativo (Proof of Concept)**
+> **Made in Colombia 🇨🇴** | **Educational Project (Proof of Concept)**
 
 ![JustiBot Status](https://img.shields.io/badge/Status-Prototype-orange) ![Python](https://img.shields.io/badge/Backend-FastAPI-009688) ![React](https://img.shields.io/badge/Frontend-React_19-61DAFB) ![AI](https://img.shields.io/badge/AI-Gemini-8E75B2)
 
-## 🇨🇴 Contexto: Democratizando la Justicia
-**JustiBot** nace de una necesidad real en **Colombia**: el acceso a la justicia suele ser costoso y complejo para el ciudadano promedio. Muchas personas no saben cómo redactar una **Acción de Tutela** para reclamar salud, o un **Derecho de Petición** para solicitar información a entidades públicas.
+## 🇨🇴 Context: Democratizing Justice
+**JustiBot** was born from a real need in **Colombia**: access to justice is often costly and complex for the average citizen. Many people do not know how to draft an **Acción de Tutela** (Tutela Action) to claim fundamental rights like health, or a **Derecho de Petición** (Right of Petition) to request information from public entities.
 
-Este proyecto es una iniciativa auténtica para explorar cómo la **Inteligencia Artificial** puede cerrar esa brecha, permitiendo a cualquier colombiano generar borradores legales con solo describir su problema en lenguaje natural.
+This project is an authentic initiative to explore how **Artificial Intelligence** can bridge that gap, allowing any Colombian to generate legal drafts simply by describing their problem in natural language.
 
 > [!WARNING]
-> **IMPORTANTE - DISCLAIMER LEGAL**
-> Este proyecto es un **Prototipo Educativo a Baja Escala**.
-> *   **NO es asesoramiento legal profesional.**
-> *   Los documentos generados son **borradores** basados en modelos de lenguaje generalistas.
-> *   El sistema **no cuenta con validación constitucional exhaustiva** ni reemplaza a un abogado.
-> *   Úsalo solo con fines de prueba y aprendizaje.
+> **IMPORTANT - LEGAL DISCLAIMER**
+> This project is a **Low-Scale Educational Prototype**.
+> *   **It is NOT professional legal advice.**
+> *   The generated documents are **drafts** based on generalist language models.
+> *   The system **does not have exhaustive constitutional validation** nor does it replace a lawyer.
+> *   Use only for testing and learning purposes.
 
 ---
 
 ## 🚀 Quick Start
 
-### Requisitos Previos
-*   [Docker](https://www.docker.com/) instalado y corriendo.
-*   Una API Key de Google Gemini (Gratuita).
+### Prerequisites
+*   [Docker](https://www.docker.com/) installed and running.
+*   A Google Gemini API Key (Free).
 
-### Ejecución con Docker (Recomendado)
+### Run with Docker (Recommended)
 
-1.  **Clonar el repositorio**:
+1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/TU_USUARIO/justibot.git
+    git clone https://github.com/YOUR_USER/justibot.git
     cd justibot
     ```
 
-2.  **Configurar Variables de Entorno**:
-    Crea un archivo `.env` en la carpeta `backend/` y pega tu llave:
+2.  **Configure Environment Variables**:
+    Create a `.env` file in the `backend/` folder and paste your key:
     ```bash
-    # En backend/.env
-    OPENAI_API_KEY=tu_api_key_aqui
+    # In backend/.env
+    OPENAI_API_KEY=your_api_key_here
     ```
 
-3.  **Correr el proyecto**:
+3.  **Run the project**:
     ```bash
     docker-compose -f infra/docker-compose.yml up --build
     ```
 
-4.  **Acceder**:
+4.  **Access**:
     *   **Frontend**: [http://localhost:5173](http://localhost:5173)
     *   **Backend API**: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
-El proyecto utiliza una arquitectura moderna y desacoplada:
+The project uses a modern, decoupled architecture:
 
 *   **Frontend**: React 19 (Vite) + TailwindCSS.
 *   **Backend**: Python FastAPI.
-*   **Base de Datos**: PostgreSQL 15.
-*   **Inteligencia Artificial**: Google Gemini 1.5 Flash (vía `google-generativeai`).
+*   **Database**: PostgreSQL 15.
+*   **Artificial Intelligence**: Google Gemini 1.5 Flash (via `google-generativeai`).
 
 ---
 
-## 📂 Estructura del Proyecto
+## 📸 Screenshots
+
+| Landing Page | Case Wizard |
+|:---:|:---:|
+| ![Home](./docs/screenshots/home_placeholder.png) | ![Wizard](./docs/screenshots/wizard_placeholder.png) |
+| *Home Screen* | *Generating a Tutela* |
+
+## 🚧 Roadmap & Future Improvements
+As an educational Proof of Concept, there are several exciting features planned:
+
+- [ ] **PDF Export**: Convert the markdown output to a downloadable standard PDF.
+- [ ] **User Authentication**: Secure login to save case history per user.
+- [ ] **Constitutional Verification**: Agents to verify arguments against specific Colombian Constitutional Court rulings.
+- [ ] **CI/CD Pipeline**: Automate testing and deployment with GitHub Actions.
+- [ ] **Voice Input**: Accessibility feature to describe cases via voice.
+
+---
+
+## 📂 Project Structure
 
 ```bash
 projectIA/
-├── 📂 backend/              # Lógica del servidor (FastAPI)
+├── 📂 backend/              # Server Logic (FastAPI)
 │   ├── 📂 app/
-│   │   ├── 📂 core/         # Configuración (config.py)
-│   │   ├── 📂 services/     # Lógica de IA (ai_service.py)
-│   │   └── main.py          # Punto de entrada
+│   │   ├── 📂 core/         # Configuration (config.py)
+│   │   ├── 📂 services/     # AI Logic (ai_service.py)
+│   │   └── main.py          # Entry Point
 │   ├── Dockerfile
 │   └── requirements.txt
-├── 📂 frontend/             # Interfaz de Usuario (React)
+├── 📂 frontend/             # User Interface (React)
 │   ├── 📂 src/
 │   │   ├── 📂 components/   # Wizard, Layout
 │   │   └── App.tsx
 │   └── Dockerfile
-├── 📂 infra/                # Orquestación
-│   └── docker-compose.yml   # Definición de contenedores
+├── 📂 infra/                # Orchestration
+│   └── docker-compose.yml   # Container Definitions
 └── README.md
 ```
 
-## 📚 Documentación Adicional
+## 📚 Additional Documentation
 
-Para profundizar en el desarrollo y la arquitectura:
+To dive deeper into development and architecture:
 
-*   [🤖 AGENTS.md](./AGENTS.md): Cómo usamos IA y "Agentic Workflows" para construir esto.
-*   [🏗️ TECHNICAL_DOCS.md](./TECHNICAL_DOCS.md): Detalles de arquitectura, base de datos y API.
+*   [🤖 AGENTS.md](./AGENTS.md): How we used AI and "Agentic Workflows" to build this.
+*   [🏗️ TECHNICAL_DOCS.md](./TECHNICAL_DOCS.md): Architecture, database, and API details.
 
 ---
 
-### Licencia
-Este proyecto es de código abierto bajo la **Licencia GPL v3.0**. Esto asegura que cualquier mejora futura al proyecto permanezca siendo libre y de código abierto para la comunidad.
+### License
+This project is open-source under the **GPL v3.0 License**. This ensures that any future improvements to the project remain free and open-source for the community.
