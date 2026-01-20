@@ -5,9 +5,7 @@ This document explains how **Artificial Intelligence** was not just the *product
 ## 1. Agentic Development Workflow
 The development of JustiBot followed an "Agentic" approach, treating the AI (Antigravity) as a pair programmer rather than just a code generator.
 
-### Tools Used
-*   **IDE Integration**: The AI had direct access to the file system to read, write, and debug code in real-time.
-*   **Terminal Control**: The AI executed Docker commands, installed dependencies, and ran git commands to manage version control.
+
 
 ### Workflow Steps
 1.  **Planning**: We started by defining the "User Story" (Colombian Legal Assistant).
