@@ -1,0 +1,90 @@
+/* ============================================ */
+/* INDEX.CSS - Estilos Globales con Tailwind CSS v4 */
+/* ============================================ */
+/* Este archivo configura Tailwind CSS v4 y define estilos globales */
+
+/* ============================================ */
+/* IMPORTACIÓN DE TAILWIND CSS */
+/* ============================================ */
+/* Importa Tailwind CSS v4 */
+/* Esta directiva carga TODOS los estilos utilitarios de Tailwind */
+/* En versiones anteriores, se usaban 3 imports (@tailwind base, @tailwind components, @tailwind utilities) */
+/* En v4, solo se necesita uno: @import "tailwindcss" */
+@import "tailwindcss";
+
+/* ============================================ */
+/* CONFIGURACIÓN DE DARK MODE (Tailwind v4) */
+/* ============================================ */
+/* Define cómo funciona el modo oscuro */
+/* @variant dark (&:where(.dark, .dark *)): */
+/* - "dark" es el nombre de la variante (usado como dark:bg-slate-900) */
+/* - &:where(.dark, .dark *) significa: */
+/*   * Aplica estilos cuando el elemento o cualquier ancestro tiene la clase "dark" */
+/*   * where() reduce la especificidad CSS (evita problemas de prioridad) */
+/* 
+/* Ejemplo de uso: */
+/* <html class="dark"> */
+/*   <div class="bg-white dark:bg-slate-900"> */
+/*     Este div tendrá fondo oscuro porque <html> tiene class="dark" */
+/*   </div> */
+/* </html> */
+@variant dark (&:where(.dark, .dark *));
+
+/* ============================================ */
+/* TEMA PERSONALIZADO (Colores) */
+/* ============================================ */
+/* @theme es la directiva de Tailwind v4 para definir tokens de diseño */
+/* Aquí definimos colores personalizados que se pueden usar en toda la app */
+@theme {
+  /* Color azul principal de JustiBot */
+  /* Uso: bg-justi-blue, text-justi-blue, border-justi-blue, etc. */
+  --color-justi-blue: #2563eb;
+
+  /* Color azul claro secundario (actualmente no usado en la app) */
+  /* Uso: bg-justi-light, text-justi-light, etc. */
+  --color-justi-light: #eff6ff;
+}
+
+/* ============================================ */
+/* ESTILOS GLOBALES DEL BODY */
+/* ============================================ */
+/* @apply permite usar clases de Tailwind dentro de CSS tradicional */
+body {
+  /* bg-slate-50: fondo gris muy claro (#f8fafc) */
+  /* text-slate-900: texto casi negro (#0f172a) */
+  /* Estos son los estilos por defecto en modo light */
+  /* El modo dark se maneja con dark:bg-slate-900 en Layout.tsx */
+  @apply bg-slate-50 text-slate-900;
+}
+
+/* ============================================ */
+/* NOTAS SOBRE TAILWIND CSS v4 */
+/* ============================================ */
+/*
+ * Tailwind v4 introdujo cambios importantes:
+ * 
+ * 1. SINGLE IMPORT:
+ *    - Antes: @tailwind base; @tailwind components; @tailwind utilities;
+ *    - Ahora: @import "tailwindcss";
+ * 
+ * 2. DARK MODE CON @variant:
+ *    - Antes: darkMode: 'class' en tailwind.config.js
+ *    - Ahora: @variant dark (&:where(.dark, .dark *)); en CSS
+ * 
+ * 3. COLORES PERSONALIZADOS CON @theme:
+ *    - Antes: theme: { extend: { colors: { ... } } } en tailwind.config.js
+ *    - Ahora: @theme { --color-nombre: #hex; } en CSS
+ * 
+ * 4. CONFIGURACIÓN MÁS SIMPLE:
+ *    - La mayoría de la configuración ahora está en CSS en lugar de JS
+ *    - tailwind.config.js es mucho más pequeño (solo content y darkMode)
+ * 
+ * 5. MEJOR RENDIMIENTO:
+ *    - v4 es ~10x más rápido que v3
+ *    - Usa @tailwindcss/postcss en lugar del PostCSS plugin tradicional
+ * 
+ * WHY @variant dark?
+ * En Tailwind v4, el dark mode NO se configura en tailwind.config.js.
+ * En su lugar, usamos @variant para decirle a Tailwind:
+ * "Cuando veas dark:bg-slate-900, aplica bg-slate-900 solo si <html class='dark'>"
+ */
