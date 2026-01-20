@@ -36,7 +36,7 @@ class Settings(BaseSettings):
     # ============================================
     # API Key de Gemini (viene de variable de entorno OPENAI_API_KEY)
     # IMPORTANTE: Esta debe estar definida en docker-compose.yml o en .env
-    OPENAI_API_KEY: str = "AIzaSyAGJqAHH3928XaYgLPEeX0zLLpRlpew5lY"
+    OPENAI_API_KEY: str = ""
     
     # Modelo de IA a usar (gemini-1.5-flash es rápido y económico)
     OPENAI_MODEL: str = "gemini-1.5-flash"

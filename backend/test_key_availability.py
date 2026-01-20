@@ -3,7 +3,7 @@ import google.generativeai as genai
 import os
 
 # LA LLAVE ORIGINAL QUE DICES QUE ES TUYA
-TEST_KEY = "AIzaSyCK-AV7FWaiBQ_YCG8i4WhIcjONnzg1olg"
+TEST_KEY = "PON_TU_LLAVE_AQUI"
 
 print(f"Diagnostico de API Key: {TEST_KEY[:10]}...")
 

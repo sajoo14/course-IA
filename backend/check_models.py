@@ -1,5 +1,8 @@
 import google.generativeai as genai
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 api_key = os.environ.get("OPENAI_API_KEY")
 print(f"Checking models with key ending in: ...{api_key[-4:] if api_key else 'None'}")

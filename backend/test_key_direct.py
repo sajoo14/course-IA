@@ -3,7 +3,10 @@ import google.generativeai as genai
 import os
 
 # TU LLAVE DIRECTAMENTE AQUI
-REAL_KEY = "AIzaSyAGJqAHH3928XaYgLPEeX0zLLpRlpew5lY"
+# TU LLAVE DIRECTAMENTE AQUI - CARGADA DESDE .ENV
+from dotenv import load_dotenv
+load_dotenv()
+REAL_KEY = os.getenv("OPENAI_API_KEY")
 
 print(f"Probando conexion con llave: {REAL_KEY[:10]}...")
 
